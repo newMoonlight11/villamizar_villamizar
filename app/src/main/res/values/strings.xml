@@ -3,4 +3,9 @@
     <string name="delete">Eliminar</string>
     <string name="txt_listado">Listado de productos</string>
     <string name="txt_detalle">Detalle producto</string>
+    <string name="addp">Agregar producto</string>
+    <string name="password">Contraseña</string>
+    <string name="user">Correo electrónico</string>
+    <string name="login">iniciar sesión</string>
+    <string name="Log_in">LOGIN</string>
 </resources>
