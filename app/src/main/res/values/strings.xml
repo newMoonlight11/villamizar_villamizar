@@ -8,4 +8,8 @@
     <string name="user">Correo electrónico</string>
     <string name="login">iniciar sesión</string>
     <string name="Log_in">LOGIN</string>
+    <string name="form_nombre_prod">Nombre del producto</string>
+    <string name="form_precio_prod">Precio del producto</string>
+    <string name="form_url_prod">Url del producto</string>
+    <string name="enviar_bd">enviar</string>
 </resources>
