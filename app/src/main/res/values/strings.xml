@@ -11,5 +11,6 @@
     <string name="form_nombre_prod">Nombre del producto</string>
     <string name="form_precio_prod">Precio del producto</string>
     <string name="form_url_prod">Url del producto</string>
-    <string name="enviar_bd">enviar</string>
+    <string name="enviar_bd">registrar</string>
+    <string name="inicio">Inicio</string>
 </resources>
