@@ -66,4 +66,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this,LoginActivity.class));
         finish();
     }
+
+    public void clickAgregarProducto(View view){
+        Intent myIntent = new Intent(this, FormularioActivity.class);
+        startActivity(myIntent);
+
+    }
 }

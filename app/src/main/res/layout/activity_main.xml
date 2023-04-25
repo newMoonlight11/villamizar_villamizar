@@ -37,6 +37,7 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/shape_form_activity"
         android:backgroundTint="@color/unab_color"
+        android:onClick="clickAgregarProducto"
         android:padding="10dp"
         android:text="@string/addp"
         android:textColor="#FFFFFF"

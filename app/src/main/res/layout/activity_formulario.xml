@@ -81,6 +81,7 @@
             android:layout_marginBottom="56dp"
             android:background="@drawable/shape_button"
             android:backgroundTint="@color/white"
+            android:onClick="clickGuardar"
             android:text="@string/enviar_bd"
             android:textColor="@color/unab_color"
             app:layout_constraintBottom_toBottomOf="parent"

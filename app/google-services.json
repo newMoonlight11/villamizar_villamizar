@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "134445862341",
+    "project_id": "villamizarvillamizar-5e597",
+    "storage_bucket": "villamizarvillamizar-5e597.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:134445862341:android:7f5d08dea0cc74e40f4fac",
+        "android_client_info": {
+          "package_name": "com.example.villamizar_villamizar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "134445862341-i5aqs360sefccvqs8cs2ank662tfojk2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCln6S7owOZOKmg6u0MtT1MlKW4AvoV5Iw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "134445862341-i5aqs360sefccvqs8cs2ank662tfojk2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
