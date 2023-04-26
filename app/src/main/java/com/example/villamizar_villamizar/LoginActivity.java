@@ -12,6 +12,7 @@ import android.widget.Toast;
 public class LoginActivity extends AppCompatActivity {
     private EditText etEmail, etPassword;
     private SharedPreferences misPreferencias;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,28 +20,31 @@ public class LoginActivity extends AppCompatActivity {
         referenciar();
         misPreferencias = getSharedPreferences("tienda_app", MODE_PRIVATE);
         //verificar sí está logueado
-        if(misPreferencias.getBoolean("logueado", false)){
-            Intent myIntent  = new Intent(this, MainActivity.class);
+        if (misPreferencias.getBoolean("logueado", false)) {
+            Intent myIntent = new Intent(this, MainActivity.class);
             startActivity(myIntent);
             finish();
-    }}
-    private  void referenciar(){
+        }
+    }
+
+    private void referenciar() {
         etEmail = findViewById(R.id.et_email);
         etPassword = findViewById(R.id.et_password);
     }
-    public void clickIniciarSesion (View view){
+
+    public void clickIniciarSesion(View view) {
         String PASS = "123456";
         String USER = "Camila";
         String passUser = etPassword.getText().toString();
         String userUSer = etEmail.getText().toString();
-        if (PASS.equals(passUser)&&USER.equals(userUSer)){
-            SharedPreferences.Editor myEditor =  misPreferencias.edit();
-            Intent myIntent  = new Intent(this, MainActivity.class);
+        if (PASS.equals(passUser) && USER.equals(userUSer)) {
+            SharedPreferences.Editor myEditor = misPreferencias.edit();
+            Intent myIntent = new Intent(this, MainActivity.class);
             startActivity(myIntent);
             finish();
             myEditor.putBoolean("logueado", true);
             myEditor.apply();
-        }else{
+        } else {
             Toast.makeText(this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
         }
     }
