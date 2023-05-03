@@ -13,4 +13,5 @@
     <string name="form_url_prod">Url del producto</string>
     <string name="enviar_bd">registrar</string>
     <string name="inicio">Inicio</string>
+    <string name="editar">Editar</string>
 </resources>
