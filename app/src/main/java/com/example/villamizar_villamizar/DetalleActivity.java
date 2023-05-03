@@ -32,7 +32,7 @@ public class DetalleActivity extends AppCompatActivity {
     }
 
 
-    public void formulario(View view) {
+    public void clickEditar(View view) {
         String productoId = getIntent().getStringExtra("producto_id");
         Intent intent = new Intent(this, FormularioActivity.class);
         intent.putExtra("producto_id", productoId);
