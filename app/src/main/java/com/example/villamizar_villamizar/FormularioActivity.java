@@ -22,6 +22,16 @@ public class FormularioActivity extends AppCompatActivity {
         etprecio = findViewById(R.id.et_form_precio_producto);
         etimagen = findViewById(R.id.et_form_url_producto);
         productoId = getIntent().getStringExtra("producto_id");
+
+        if (productoId != null && !productoId.isEmpty()) {
+            // Código para cargar los datos del producto existente
+            loadProductData();
+        } else {
+            Toast.makeText(this, "Creando un nuevo producto", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void loadProductData() {
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         firestore.collection("productos").document(productoId).get()
                 .addOnSuccessListener(documentSnapshot -> {
@@ -50,24 +60,36 @@ public class FormularioActivity extends AppCompatActivity {
         newProduct.setPrecio(precio_producto);
         newProduct.setUrlImagen(url_producto);
 
+        if (productoId != null && !productoId.isEmpty()) {
+            updateProduct(newProduct);
+        } else {
+            createProduct(newProduct);
+        }
+    }
+
+    private void updateProduct(Producto product) {
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-        firestore.collection("productos").document(productoId).get()
-                .addOnSuccessListener(documentSnapshot -> {
-                    if (documentSnapshot.exists()) {
-
-                        firestore.collection("productos").document(productoId).set(newProduct);
-                        Toast.makeText(this, "Producto actualizado", Toast.LENGTH_SHORT).show();
-                    } else {
-
-                        firestore.collection("productos").document().set(newProduct);
-                        Toast.makeText(this, "Se creó el producto", Toast.LENGTH_SHORT).show();
-                    }
+        firestore.collection("productos").document(productoId).set(product)
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(this, "Producto actualizado", Toast.LENGTH_SHORT).show();
                     finish();
                     startActivity(new Intent(FormularioActivity.this, MainActivity.class));
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(this, "Error al buscar el producto: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-
+                    Toast.makeText(this, "Error al actualizar el producto: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 });
-        finish();
-}}
+    }
+
+    private void createProduct(Producto product) {
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        firestore.collection("productos").add(product)
+                .addOnSuccessListener(documentReference -> {
+                    Toast.makeText(this, "Se creó el producto", Toast.LENGTH_SHORT).show();
+                    finish();
+                    startActivity(new Intent(FormularioActivity.this, MainActivity.class));
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, "Error al crear el producto: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                });
+    }
+}
